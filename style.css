@@ -1,7 +1,12 @@
+/*       Font Info:
+         font-family: 'Roboto Slab', serif;
+         Valid Weights: 100 t/m 900, alles kan ittalic */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
 }
 
 html {
@@ -25,7 +30,8 @@ body {
 .main-head *{
     color: black;
     font-size: 1.2rem;
-    font-weight: 200;
+    font-weight: 400;
+    z-index: 1;
 }
 
 .logo {
@@ -126,4 +132,45 @@ footer {
     height: 5vh;
     font-size: 1.5rem;
     text-align: center;
+}
+
+/* Main page things */
+.header {
+    text-align: center;
+    width: 100vw;
+}
+
+.mainpageflex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+}
+
+.mainpagegame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+.mainpagegame img {
+    width: 30vw;
+    height: 30vh;
+}
+
+.mainpagegamep {
+    background-color: #d9d9d97f;
+    width: 30vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainpagegamep p {
+    width: 20vw;
+    max-height: 30vh;
 }
