@@ -200,6 +200,7 @@ footer {
 }
 
 .text {
+    padding: 0vh 2vw;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -219,10 +220,6 @@ footer {
 .favogame img {
     width: 20vw;
     height: 20vh;
-}
-
-.favogamesmain {
-    margin-top: 7.5vh;
 }
 
 .footerdiv {
