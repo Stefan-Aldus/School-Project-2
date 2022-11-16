@@ -199,6 +199,14 @@ footer {
     align-items: center;
 }
 
+.text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff9f93c;
+    border-radius: 2.5vw;
+}
+
 .favogame p{
     font-size: 1.5rem;
     width: 33vw;
