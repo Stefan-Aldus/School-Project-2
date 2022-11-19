@@ -120,7 +120,7 @@ main {
 }
 
 main * {
-    color: white;
+    color: cornsilk;
 }
 
 /* Footer code */
@@ -226,3 +226,83 @@ footer {
 .footerdiv {
     position: relative;
 }
+
+.portfoliopage {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 110vh;
+    color: cornsilk;
+}
+
+.portfolioheader {
+    text-align: center;
+}
+
+.portfoliosections0 {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around
+}
+
+.portfoliosections {
+    display: flex;
+    width: 90vw;
+    justify-content: space-around;
+    height: 50vh;
+}
+
+.portfoliosection {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 28vw;
+    background-color: rgba(255, 255, 255, 0.273);
+    border-radius: 5vw;
+}
+
+.portfoliosection p{
+    font-size: 1.2rem;
+    width: 20vw;
+    height: 25vh;
+}
+
+.portfoliosection h2, .portfoliosection2 h2 {
+    font-size: 1.75rem;
+}
+
+.githublink {
+    text-decoration: underline;
+    color: wheat;
+}
+
+.portfoliosections2{
+    width: 75vw;
+    height: 35vh;
+    display: flex;
+    justify-content: space-around   ;
+}
+
+.portfoliosection2 {
+    height: 25vh;
+    width: 30vw;
+    background-color: rgba(255, 255, 255, 0.273);
+    border-radius: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.portfoliosection2 p{
+    width: 20vw;
+}
+
