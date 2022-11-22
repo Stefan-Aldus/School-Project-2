@@ -177,3 +177,17 @@ footer {
     width: 20vw;
     max-height: 30vh;
 }
+
+.RO1 {
+    color: white;
+    text-align: center;
+    margin-top: 7rem;
+    font-size: x-large;
+}
+
+.RO2 {
+    display: flex;
+    background-color: #aff4b6b5;
+    height: 20rem;
+    width: 30rem;
+}
