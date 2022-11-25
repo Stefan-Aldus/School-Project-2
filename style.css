@@ -2,380 +2,297 @@
          font-family: 'Roboto Slab', serif;
          Valid Weights: 100 t/m 900, alles kan ittalic */
 
-         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto Slab', serif;
-        }
-        
-        html {
-          font-size: 62.5%;
-        }
-        
-        body {
-            display: flex;
-            flex-direction: column;
-            background-image: url(./img/background.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: auto;
-            min-height: 100vh;
-            width: 100vw;
-            font-size: 1rem;
-            overflow-x: hidden;
-        }
-        
-        /* Navbar code!!! */
-        
-        .main-head *{
-            color: black;
-            font-size: 1.2rem;
-            font-weight: 400;
-            z-index: 1;
-        }
-        
-        .logo {
-          background-color: #aff4b671;
-          padding: 2vh 2vw;
-          font-weight: 100;
-          width: 10vw;
-          height: 5vh;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        .logo:hover {
-          background-color: #aff4b6b5;
-        }
-        
-        nav {
-          display: flex;
-          justify-content: space-around;
-          width: 100vw;
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 7.5vh;
-          background-color: rgba(0, 0, 0, 0.37);
-          align-items: center;
-        }
-        
-        nav ul {
-          width: 70vw;
-          display: flex;
-          justify-content: space-around;
-          list-style-type: none;
-        }
-        
-        .dropdown-content {
-          display: none;
-          position: absolute;
-          background-color: #aff4b695;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 10vw;
-        }
-        
-        .dropdown-content a {
-          width: 10vw;
-          padding: 2vh 0vw;
-          text-align: center;
-        }
-        
-        .dropdown-content a:hover {
-          background-color: #aff4b6b5;
-        }
-        
-        .dropdown:hover .dropdown-content {
-          display: flex;
-        }
-        
-        .dropbtn {
-          width: 10vw;
-          height: 5vh;
-          background-color: #aff4b671;
-          padding: 2vh 2vw;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        .dropbtn:hover {
-          background-color: #aff4b6b5;
-        }
-        
-        a {
-          text-decoration: none;
-        }
-        
-        main {
-          padding-top: 7.5vh;
-        }
-        
-        main * {
-            color: cornsilk;
-        }
-        
-        /* Footer code */
-        
-        footer {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          background-color: #fff9f93c;
-          width: 100vw;
-          height: 5vh;
-          font-size: 1.5rem;
-          text-align: center;
-            color: white;
-        }
-        
-        /* Main page things */
-        .header {
-            text-align: center;
-            width: 100vw;
-        }
-        
-        .mainpageflex {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100vw;
-            height: 80vh;
-        }
-        
-        .mainpagegame {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height: 80vh;
-        }
-        
-        .mainpagegame img {
-            width: 30vw;
-            height: 30vh;
-            opacity: 75%;
-        }
-        
-        .mainpagegamep {
-            background-color: #d9d9d97f;
-            width: 30vw;
-            height: 30vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .mainpagegamep p {
-            width: 20vw;
-            max-height: 30vh;
-        }
-        
-        /* favo games css */
-        
-        .favogames {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100vw;
-            height: 100vh;
-        }
-        
-        .favogame {
-            width: 100vw;
-            height: 30vh;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        
-        .text {
-            padding: 0vh 2vw;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            background-color: #fff9f93c;
-            border-radius: 2.5vw;
-        }
-        
-        .favogame p{
-            color: snow;
-            font-size: 1.5rem;
-            width: 33vw;
-            height: 25vh;
-            text-align: center;
-            align-items: center;
-            display: flex;
-        }
-        
-        .favogame img {
-            width: 20vw;
-            height: 20vh;
-        }
-        
-        .footerdiv {
-            position: relative;
-        }
-        
-        .portfoliopage {
-            font-size: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            min-height: 130vh;
-            height: auto;
-            color: cornsilk;
-        }
-        
-        .portfolioheader {
-            text-align: center;
-        }
-        
-        .portfoliosections0 {
-            display: flex;
-            min-height: 100vh;
-            height: auto;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around
-        }
-        
-        .portfoliosections {
-            display: flex;
-            width: 90vw;
-            justify-content: space-around;
-            min-height: 60vh;
-            height: auto;
-        }
-        
-        .portfoliosection {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 40vh;
-            height: auto;
-            max-height: 50vh;
-            width: 28vw;
-            background-color: rgba(255, 255, 255, 0.273);
-            border-radius: 5vw;
-        }
-        
-        .portfoliosection p{
-            font-size: 1.2rem;
-            width: 20vw;
-        }
-        .portfoliosection h2, .portfoliosection2 h2 {
-            font-size: 1.75rem;
-        }
-        
-        .githublink {
-            text-decoration: underline;
-            color: wheat;
-        }
-        
-        .portfoliosections2{
-            width: 75vw;
-            height: 35vh;
-            display: flex;
-            justify-content: space-around   ;
-        }
-        
-        .portfoliosection2 {
-            height: 25vh;
-            width: 30vw;
-            background-color: rgba(255, 255, 255, 0.273);
-            border-radius: 5vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            text-align: center;
-        }
-        
-        .portfoliosection2 p{
-            width: 20vw;
-        }
-        
-        
-        
-        /* Uitleg games code*/
-        
-        .uitleg-game-floris {
-          background-color: rgba(128, 128, 128, 0.7);
-          height: 80vh;
-          width: 70vw;
-          border-radius: 3rem;
-          margin-left: 15%;
-          margin-top: 1%;
-        }
-        
-        .uitleg-game-floris p {
-          font-size: x-large;
-          text-align: center;
-          margin: 2%;
-        }
-        
-        .uitleg-game-floris h1 {
-          text-align: center;
-          padding-top: 20%;
-          font-size: xx-large;
-          padding-bottom: 5%;
-        }
-        
-        
-        .favogames {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100vw;
-          height: 100vh;
-        }
-        
-        .favogame {
-          width: 100vw;
-          height: 30vh;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-        }
-        
-        .text {
-          padding: 0vh 2vw;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          background-color: #fff9f93c;
-          border-radius: 2.5vw;
-        }
-        
-        .favogame p{
-          font-size: 1.5rem;
-          width: 33vw;
-          height: 25vh;
-          text-align: center;
-          align-items: center;
-          display: flex;
-        }
-        
-        .favogame img {
-          width: 20vw;
-          height: 20vh;
-        }
-        
-        .footerdiv {
-          position: relative;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./img/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+    min-height: 100vh;
+  width: 100vw;
+  font-size: 1rem;
+    overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+/* Navbar code!!! */
+
+.main-head *{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 400;
+    z-index: 1;
+}
+
+.logo {
+  background-color: #aff4b671;
+  padding: 2vh 2vw;
+  font-weight: 100;
+  width: 10vw;
+  height: 5vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo:hover {
+  background-color: #aff4b6b5;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 7.5vh;
+  background-color: rgba(0, 0, 0, 0.37);
+  align-items: center;
+}
+
+nav ul {
+  width: 70vw;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #aff4b695;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+}
+
+.dropdown-content a {
+  width: 10vw;
+  padding: 2vh 0vw;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #aff4b6b5;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropbtn {
+  width: 10vw;
+  height: 5vh;
+  background-color: #aff4b671;
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropbtn:hover {
+  background-color: #aff4b6b5;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  padding-top: 7.5vh;
+}
+
+main * {
+  color: white;
+}
+
+/* Footer code */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff9f93c;
+  width: 100vw;
+  height: 5vh;
+  font-size: 1.5rem;
+  text-align: center;
+    color: white;
+}
+
+/* Main page things */
+.header {
+    text-align: center;
+    width: 100vw;
+}
+
+.mainpageflex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+}
+
+.mainpagegame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+.mainpagegame img {
+    width: 30vw;
+    height: 30vh;
+    opacity: 75%;
+}
+
+.mainpagegamep {
+    background-color: #d9d9d97f;
+    width: 30vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mainpagegamep p {
+    width: 20vw;
+    max-height: 30vh;
+}
+
+/* favo games css */
+
+.favogames {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.favogame {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.text {
+    padding: 0vh 2vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff9f93c;
+    border-radius: 2.5vw;
+}
+
+.favogame p{
+    color: snow;
+    font-size: 1.5rem;
+    width: 33vw;
+    height: 25vh;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.favogame img {
+    width: 20vw;
+    height: 20vh;
+}
+
+.footerdiv {
+    position: relative;
+}
+
+/* Uitleg games code*/
+
+.uitleg-game-floris {
+  background-color: rgba(128, 128, 128, 0.7);
+  height: 80vh;
+  width: 70vw;
+  border-radius: 3rem;
+  margin-left: 15%;
+  margin-top: 1%;
+}
+
+.uitleg-game-floris p {
+  font-size: x-large;
+  text-align: center;
+  margin: 2%;
+}
+
+.uitleg-game-floris h1 {
+  text-align: center;
+  padding-top: 20%;
+  font-size: xx-large;
+  padding-bottom: 5%;
+}
+
+
+.favogames {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.favogame {
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.text {
+  padding: 0vh 2vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fff9f93c;
+  border-radius: 2.5vw;
+}
+
+.favogame p{
+  font-size: 1.5rem;
+  width: 33vw;
+  height: 25vh;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.favogame img {
+  width: 20vw;
+  height: 20vh;
+}
+
+.footerdiv {
+  position: relative;
+}
