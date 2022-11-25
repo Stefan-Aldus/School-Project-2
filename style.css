@@ -140,13 +140,13 @@ footer {
 }
 
 .uitleg-game-floris p {
-  margin-left: 5%;
+  text-align: center;
   font-size: x-large;
 }
 
 .uitleg-game-floris h1 {
-  margin-left: 35%;
-  padding-top: 20%;
+  text-align: center;
+  padding-top: 15%;
   font-size: xx-large;
-  padding-bottom: 5%;
+  padding-bottom: 12%;
 }
