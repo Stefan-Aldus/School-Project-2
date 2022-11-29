@@ -193,20 +193,12 @@ footer {
     text-align: center;
 }
 
-.portfoliosections0 {
-    display: flex;
-    min-height: 100vh;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around
-}
 
 .portfoliosections {
     display: flex;
     width: 90vw;
     justify-content: space-around;
-    min-height: 60vh;
+    min-height: 100vh;
     height: auto;
 }
 
@@ -237,29 +229,8 @@ footer {
     color: wheat;
 }
 
-.portfoliosections2{
-    width: 75vw;
-    height: 35vh;
-    display: flex;
-    justify-content: space-around   ;
-}
 
-.portfoliosection2 {
-    height: 25vh;
-    width: 30vw;
-    background-color: rgba(255, 255, 255, 0.273);
-    border-radius: 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-}
 
-.portfoliosection2 p{
-    width: 20vw;
-}
-
-.footerdiv {
+/* .footerdiv {
     position: relative;
 }
