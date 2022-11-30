@@ -297,3 +297,38 @@ footer {
 .footerdiv {
   position: relative;
 }
+
+        /* Game page code ish */
+
+        .clickonme *{
+          position: relative;
+        }
+
+        .clickonme {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .clickonme img {
+          width: 40vw;
+          height: 60vh;
+          border-radius: 5rem;
+        }
+
+        .gamename {
+          position: absolute;
+          bottom: 0.5vh;
+          font-size: 4rem;
+          color: rgb(255, 226, 226);
+          width: 40vw;
+          height: 60vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5rem;
+        }
