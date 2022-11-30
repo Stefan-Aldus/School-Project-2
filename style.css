@@ -307,5 +307,6 @@ footer {
 
 .portfoliosection2 p{
     width: 20vw;
+    max-width: 20vw;
 }
 
