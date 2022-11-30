@@ -291,6 +291,7 @@ footer {
 .favogame img {
   width: 20vw;
   height: 20vh;
+    max-width: 20vw;
 }
 
 .footerdiv {
