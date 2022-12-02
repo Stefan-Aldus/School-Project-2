@@ -177,3 +177,55 @@ footer {
     width: 20vw;
     max-height: 30vh;
 }
+
+.portfoliopagefloris {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 70vh;
+    height: auto;
+    color: cornsilk;
+    margin-top: 2rem;
+}
+
+.portfolioheader {
+    text-align: center;
+}
+
+.portfoliosectionsfloris {
+    display: flex;
+    width: 90vw;
+    justify-content: space-around;
+    min-height: 60vh;
+    height: auto;
+    margin-top: 5rem;
+}
+
+.portfoliosectionfloris {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    height: auto;
+    max-height: 50vh;
+    width: 28vw;
+    background-color: rgba(255, 255, 255, 0.273);
+    border-radius: 5vw;
+}
+
+.portfoliosectionfloris p{
+    font-size: 1.1rem;
+    width: 20vw;
+}
+.portfoliosectionfloris h2 {
+    font-size: 2rem;
+}
+
+.githublink {
+    text-decoration: underline;
+    color: wheat;
+}
