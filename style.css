@@ -497,3 +497,29 @@ Footer div for pushing the footer to the bottom if it isn't on the bottom of the
   text-decoration: underline;
   color: wheat;
 }
+
+/* Game explanation  */
+
+.explainpage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explainthegame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #e4fde771;
+  width: 40vw;
+  height: 50vh;
+  border-radius: 2vw;
+}
+
+.explainthegame p {
+  width: 30vw;
+}
