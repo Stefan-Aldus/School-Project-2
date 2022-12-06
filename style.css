@@ -30,12 +30,16 @@ body {
 
 /* Navbar code!!! */
 
+/* Styling the main part of the navbar */
+
 .main-head * {
   color: black;
   font-size: 1.2rem;
   font-weight: 400;
   z-index: 1;
 }
+
+/* Styling the "logo" */
 
 .logo {
   background-color: #aff4b671;
@@ -50,9 +54,13 @@ body {
   align-items: center;
 }
 
+/* Making the opacity of the logo higher on hover */
+
 .logo:hover {
   background-color: #aff4b6b5;
 }
+
+/* Positioning the nav & lowering opacity */
 
 nav {
   display: flex;
@@ -66,12 +74,16 @@ nav {
   align-items: center;
 }
 
+/* Styling the nav ul's */
+
 nav ul {
   width: 70vw;
   display: flex;
   justify-content: space-around;
   list-style-type: none;
 }
+
+/* Making the dropdown-content invisible & styling/aligning them */
 
 .dropdown-content {
   display: none;
@@ -83,19 +95,27 @@ nav ul {
   width: 10vw;
 }
 
+/* Making the links bigger */
+
 .dropdown-content a {
   width: 10vw;
   padding: 2vh 0vw;
   text-align: center;
 }
 
+/* Making the links opacity higher on hover */
+
 .dropdown-content a:hover {
   background-color: #aff4b6b5;
 }
 
+/* Displaying the dropdown content with flex */
+
 .dropdown:hover .dropdown-content {
   display: flex;
 }
+
+/* Styling the buttons of the navbar */
 
 .dropbtn {
   width: 10vw;
@@ -108,17 +128,25 @@ nav ul {
   align-items: center;
 }
 
+/* Making the dropbutton less see through on hover */
+
 .dropbtn:hover {
   background-color: #aff4b6b5;
 }
+
+/* Getting rid of every link underline */
 
 a {
   text-decoration: none;
 }
 
+/* Making sure the main doesn't start under the navbar on every page */
+
 main {
   padding-top: 7.5vh;
 }
+
+/* Setting the default text color */
 
 main * {
   color: white;
@@ -136,6 +164,15 @@ footer {
   font-size: 1.5rem;
   text-align: center;
   color: white;
+}
+
+/* 
+Footer div for pushing the footer to the bottom if it isn't on the bottom of the page already
+(place a div around the footer with this class)
+ */
+
+.footerdiv {
+  position: relative;
 }
 
 /* Main page things */
@@ -224,9 +261,6 @@ footer {
   height: 20vh;
 }
 
-.footerdiv {
-  position: relative;
-}
 
 /* Uitleg games code*/
 
@@ -293,9 +327,6 @@ footer {
   max-width: 20vw;
 }
 
-.footerdiv {
-  position: relative;
-}
 
 /* Game page code ish */
 
@@ -465,4 +496,30 @@ footer {
 .githublink {
   text-decoration: underline;
   color: wheat;
+}
+
+/* Game explanation  */
+
+.explainpage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explainthegame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #e4fde771;
+  width: 40vw;
+  height: 50vh;
+  border-radius: 2vw;
+}
+
+.explainthegame p {
+  width: 30vw;
 }
