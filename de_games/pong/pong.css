@@ -10,7 +10,7 @@ body {
 #paddle_left {
   position: absolute;
   left: 30px;
-  top: 50vh;
+  top: 45vh;
   background-color: white;
   width: 0.3vw;
   height: 15vh;
@@ -20,7 +20,7 @@ body {
 #paddle_right {
   position: absolute;
   right: 30px;
-  top: 50vh;
+  top: 45vh;
   background-color: white;
   width: 0.3vw;
   height: 15vh;
@@ -38,4 +38,7 @@ body {
   width: 0.5rem;
   background-color: white;
   margin: 0;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
 }
