@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="pong.css" />
     <title>Document</title>
   </head>
-  <body>
+  <body id="body">
     <main>
       <section class="container">
         <div id="paddle_left"></div>
         <div id="ball"></div>
         <div id="paddle_right"></div>
       </section>
+      <button onclick="backToGame()" id="btn">Back To Game</button>
+      <button onclick="howToPlay()" id="btn2">How to play</button>
       <script defer src="app.js"></script>
+      <p id="howtoplay-text">
+        Speler 1 (Links) speelt met de controls W en S. Speler 2 (Rechts) speelt
+        met de controls pijltje omhoog en pijltje omlaag. Je moet met je paddle
+        de bal wegslaan naar de tegenstander toe.
+      </p>
     </main>
   </body>
 </html>

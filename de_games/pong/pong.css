@@ -42,3 +42,33 @@ body {
   top: 50vh;
   left: 50vw;
 }
+
+#btn {
+  display: none;
+  height: 75px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background-color: grey;
+  margin-left: 40vw;
+  margin-top: 25vh;
+}
+
+#btn2 {
+  display: none;
+  height: 75px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background-color: grey;
+  margin-left: 40vw;
+  margin-top: 10vh ;
+}
+
+#howtoplay-text {
+  display: none;
+  width: 450px;
+  color: white;
+  margin-left: 33vw;
+  margin-top: 10vh;
+}
