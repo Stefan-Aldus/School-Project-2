@@ -1,0 +1,9 @@
+.gamecanvas {
+  width: 24rem;
+  height: 40rem;
+  background-color: black;
+}
+
+.beginbutton {
+  width: 20rem;
+}
