@@ -9,19 +9,30 @@
   </head>
   <body id="body">
     <main>
+      <img src="../img/pong.png" id="pong-pic" />
+      <button onclick="startgame()" id="start-game">Start Game</button>
+      <button onclick="howToPlay2()" id="how-to-play">How to play</button>
+      <p id="howtoplay-text2">
+        Speler 1 (Links) speelt met de controls W en S. Speler 2 (Rechts) speelt
+        met de controls pijltje omhoog en pijltje omlaag. Je moet met je paddle
+        de bal wegslaan naar de tegenstander toe. Als je hem achter de
+        tegenstanders paddle raakt, krijg je 1 punt.
+      </p>
       <section class="container">
         <div id="paddle_left"></div>
         <div id="ball"></div>
         <div id="paddle_right"></div>
       </section>
+
       <button onclick="backToGame()" id="btn">Back To Game</button>
       <button onclick="howToPlay()" id="btn2">How to play</button>
-      <script defer src="app.js"></script>
       <p id="howtoplay-text">
         Speler 1 (Links) speelt met de controls W en S. Speler 2 (Rechts) speelt
         met de controls pijltje omhoog en pijltje omlaag. Je moet met je paddle
-        de bal wegslaan naar de tegenstander toe.
+        de bal wegslaan naar de tegenstander toe. Als je hem achter de
+        tegenstanders paddle raakt, krijg je 1 punt.
       </p>
     </main>
+    <script defer src="app.js"></script>
   </body>
 </html>

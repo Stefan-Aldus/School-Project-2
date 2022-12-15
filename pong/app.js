@@ -9,6 +9,35 @@ let btn = document.getElementById("btn");
 let btn2 = document.getElementById("btn2")
 let pause = false
 let text = document.getElementById("howtoplay-text")
+let start = document.getElementById("start-game")
+let btn3 = document.getElementById("how-to-play")
+let img = document.getElementById ("pong-pic")
+
+function startgame() {
+  body.style.backgroundColor= "black"
+  paddle_left.style.display = "block"
+  paddle_right.style.display = "block"
+  ball.style.display = "block"
+  text.style.display = "none"
+  start.style.display = "none"
+  pause = false
+  btn.style.display = "none"
+  btn2.style.display = "none"
+  btn3.style.display = "none"
+  img.style.display = "none"
+}
+
+function howToPlay2() {
+  body.style.backgroundColor = "#b8b6b6"
+  paddle_left.style.display = "none"
+  paddle_right.style.display = "none"
+  ball.style.display = "none"
+  btn.style.display = "none"
+  btn2.style.display = "none"
+  text.style.display = "block"
+  pause = true
+  btn3.style.display = "none"
+}
 
 window.addEventListener("keydown", function (event) {
 
@@ -36,37 +65,43 @@ window.addEventListener("keydown", function (event) {
 });
 
 window.addEventListener("keydown", function(event) { 
-if (event.key == "Escape") {
-body.style.backgroundColor= "#242424"
-paddle_left.style.display = "none"
-paddle_right.style.display = "none"
-ball.style.display = "none"
-btn.style.display = "block"
-btn2.style.display = "block"
-text.style.display = "none"
-pause = true
+  if (event.key == "Escape") {
+    body.style.backgroundColor= "#b8b6b6"
+    paddle_left.style.display = "none"
+    paddle_right.style.display = "none"
+    ball.style.display = "none"
+    btn.style.display = "block"
+    btn2.style.display = "block"
+    text.style.display = "none"
+    pause = true
+    img.style.display = "block"
 }
 })
 
 function backToGame() {
-  body.style.backgroundColor= ""
+  body.style.backgroundColor= "black"
   paddle_left.style.display = "block"
   paddle_right.style.display = "block"
   ball.style.display = "block"
   btn.style.display = "none"
   btn2.style.display = "none"
   text.style.display = "none"
+  start.style.display = "none"
   pause = false
 
 }
 
 function howToPlay() {
-  body.style.backgroundColor = "242424"
+  body.style.backgroundColor = "#b8b6b6"
   paddle_left.style.display = "none"
   paddle_right.style.display = "none"
   ball.style.display = "none"
   btn.style.display = "block"
   btn2.style.display = "none"
   text.style.display = "block"
-  pause = false
+  pause = true
+}
+
+function moveBall() {
+
 }

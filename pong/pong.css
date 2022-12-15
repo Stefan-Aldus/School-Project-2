@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: #b8b6b6;
 }
 
 .main {
@@ -8,6 +8,7 @@ body {
 }
 
 #paddle_left {
+  display: none;
   position: absolute;
   left: 30px;
   top: 45vh;
@@ -18,6 +19,7 @@ body {
 }
 
 #paddle_right {
+  display: none;
   position: absolute;
   right: 30px;
   top: 45vh;
@@ -33,6 +35,7 @@ body {
 }
 
 #ball {
+  display: none;
   border-radius: 3rem;
   height: 0.5rem;
   width: 0.5rem;
@@ -49,9 +52,9 @@ body {
   width: 200px;
   border: none;
   border-radius: 5px;
-  background-color: grey;
+  background-color: #636363;
   margin-left: 40vw;
-  margin-top: 25vh;
+  margin-top: 15vh;
 }
 
 #btn2 {
@@ -60,15 +63,53 @@ body {
   width: 200px;
   border: none;
   border-radius: 5px;
-  background-color: grey;
+  background-color: #636363;
   margin-left: 40vw;
   margin-top: 10vh ;
 }
 
 #howtoplay-text {
   display: none;
-  width: 450px;
-  color: white;
-  margin-left: 33vw;
+  width: 600px;
+  color: black;
+  margin-left: 25vw;
+  margin-top: 10vh;
+  font-size: 20px;
+}
+
+#start-game{
+  display: block;
+  height: 75px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background-color: #636363; 
+  margin-left: 40vw;
+  margin-top: 15vh;
+}
+
+#how-to-play {
+  display: block;
+  height: 75px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background-color: #636363;
+  margin-left: 40vw;
+  margin-top: 10vh ;
+}
+
+#howtoplay-text2 {
+  display: none;
+  width: 600px;
+  color: black;
+  margin-left: 25vw;
+  margin-top: 10vh;
+  font-size: 20px;
+}
+
+#pong-pic {
+  display: block;
+  margin-left: 35vw;
   margin-top: 10vh;
 }
