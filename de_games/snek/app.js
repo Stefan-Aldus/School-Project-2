@@ -40,12 +40,20 @@ let movesnakedowninterval;
 function reset() {
   positiony = 350;
   positionx = 760;
-  snake.style.right = positionx;
-  snake.style.top = positiony;
+  snake.style.right = positionx + "px";
+  snake.style.top = positiony + "px";
   currentscore = 0;
   apple.classList.add("invisible");
   currentscoreoutput.innerText =
     "De huidige score is: " + currentscore + " punten";
+  clearInterval(movesnakeupinterval);
+  clearInterval(movesnakedowninterval);
+  clearInterval(movesnakeleftinterval);
+  clearInterval(movesnakerighttinterval);
+  movesnakeupinterval = false;
+  movesnakedowninterval = false;
+  movesnakeleftinterval = false;
+  movesnakerighttinterval = false;
 }
 
 function start() {
@@ -110,11 +118,23 @@ function appleposition() {
 // Eventlisteners for changing the movement direction
 
 window.addEventListener("keydown", function (event) {
-  if (event.key == "a" || event.key == "ArrowLeft") {
-    movesnakeleftinterval = setInterval(moveleft, 100);
+  // Logging the key (remove when finished)
+  console.log(event.key);
+  if (
+    // Checking if a or left arrow gets pressed, and if either the move right interval is undefined or false (set in other listeners)
+    // Also checking if the direction isn't the same as the snake is moving now
+    (event.key == "a" || event.key == "ArrowLeft") &&
+    (movesnakerighttinterval == false ||
+      movesnakerighttinterval == undefined) &&
+    (movesnakeleftinterval == false || movesnakeleftinterval == undefined)
+  ) {
     clearInterval(movesnakeupinterval);
-    // clearInterval(movesnakedowminterval);
+    clearInterval(movesnakedowninterval);
     clearInterval(movesnakerighttinterval);
+    movesnakeleftinterval = setInterval(moveleft, 100);
+    // Setting the variables to false so you can't go back
+    movesnakedowninterval = false;
+    movesnakeupinterval = false;
     function moveleft() {
       if (size.right - 20 > positionx) {
         snake.style.right = positionx + "px";
@@ -125,14 +145,19 @@ window.addEventListener("keydown", function (event) {
       }
     }
   }
+  // Opposite direction of the above codeblock
   if (
     (event.key == "d" || event.key == "ArrowRight") &&
-    movesnakeleftinterval == false
+    (movesnakeleftinterval == false || movesnakeleftinterval == undefined) &&
+    (movesnakerighttinterval == false || movesnakerighttinterval == undefined)
   ) {
-    movesnakerighttinterval = setInterval(moveright, 100);
     clearInterval(movesnakeupinterval);
-    // clearInterval(movesnakedowminterval);
+    clearInterval(movesnakedowninterval);
     clearInterval(movesnakeleftinterval);
+    movesnakerighttinterval = setInterval(moveright, 100);
+    // Setting the variables to false so you can't go back
+    movesnakedowninterval = false;
+    movesnakeupinterval = false;
     function moveright() {
       if (size.left + 4 < positionx) {
         snake.style.right = positionx + "px";
@@ -143,11 +168,17 @@ window.addEventListener("keydown", function (event) {
       }
     }
   }
-  if (event.key == "w" || event.key == "ArrowUp") {
-    movesnakeupinterval = setInterval(moveup, 100);
+  // Checking if w gets pressed or up arrow, and if so, moves the snake up
+  if (
+    (event.key == "w" || event.key == "ArrowUp") &&
+    (movesnakedowninterval == false || movesnakedowninterval == undefined) &&
+    (movesnakeupinterval == false || movesnakeupinterval == undefined)
+  ) {
     clearInterval(movesnakerighttinterval);
-    // clearInterval(movesnakedowminterval);
+    clearInterval(movesnakedowninterval);
     clearInterval(movesnakeleftinterval);
+    movesnakeupinterval = setInterval(moveup, 100);
+    // Setting the variables to false so you can't go back
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
     function moveup() {
@@ -160,19 +191,26 @@ window.addEventListener("keydown", function (event) {
       }
     }
   }
-  if (event.key == "s" || event.key == "ArrowDown") {
-    movesnakedowninterval = setInterval(movedown, 100);
+  if (
+    (event.key == "s" || event.key == "ArrowDown") &&
+    (movesnakeupinterval == false || movesnakeupinterval == undefined) &&
+    (movesnakedowninterval == undefined || movesnakedowninterval == false)
+  ) {
     clearInterval(movesnakerighttinterval);
     clearInterval(movesnakeupinterval);
     clearInterval(movesnakeleftinterval);
+    movesnakedowninterval = setInterval(movedown, 100);
+    // Setting the variables to false so you can't go back
+    movesnakerighttinterval = false;
+    movesnakeleftinterval = false;
     function movedown() {
       console.log("test");
-      if (size.top > positiony) {
+      if (size.top - 15 <= positiony) {
         snake.style.bottom = positiony + "px";
         positiony -= 5;
       } else if (size.top - 15 <= positiony) {
         alert("you died!");
-        clearInterval(movesnakeupinterval);
+        clearInterval(movesnakedowninterval);
       }
     }
   }
