@@ -102,6 +102,3 @@ function howToPlay() {
   pause = true
 }
 
-function moveBall() {
-
-}
