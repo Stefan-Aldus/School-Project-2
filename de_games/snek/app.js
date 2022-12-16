@@ -57,7 +57,7 @@ function reset() {
 }
 
 function start() {
-  scorecounter();
+  // scorecounter();
   appleposition();
   apple.classList.remove("invisible");
 }
