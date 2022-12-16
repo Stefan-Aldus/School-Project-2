@@ -17,6 +17,10 @@ let positionx = 760;
 let randomapplebottom;
 let randomappleleft;
 
+// Making 2 variables to save the position of the apple in after moving
+let currentapplepositionx;
+let currentapplepositiony;
+
 // Making a variable to check the size of the playarea
 let size = playarea.getBoundingClientRect();
 // Logging it for debug purposes (remove when done)
@@ -41,7 +45,7 @@ function reset() {
   positiony = 350;
   positionx = 760;
   snake.style.right = positionx + "px";
-  snake.style.top = positiony + "px";
+  snake.style.bottom = positiony + "px";
   currentscore = 0;
   apple.classList.add("invisible");
   currentscoreoutput.innerText =
@@ -96,22 +100,30 @@ function appleposition() {
   ) {
     apple.style.bottom = randomapplebottom + "px";
     apple.style.left = randomappleleft + "px";
+    currentapplepositionx = randomappleleft;
+    currentapplepositiony = randomapplebottom;
   }
   // If the above if statement is false, checks if the height position is correct,
   // and moving the apple to a pre-defined position in the width position
   else if (randomapplebottom <= size.bottom && randomapplebottom >= size.top) {
     apple.style.bottom = randomapplebottom + "px";
     apple.style.left = positionx + "px";
+    currentapplepositionx = randomappleleft;
+    currentapplepositiony = randomapplebottom;
   }
   // If the above statement is false, checks if the left is in the field
   else if (randomappleleft <= size.left && randomappleleft >= size.width) {
     apple.style.left = randomappleleft + "px";
     apple.style.bottom = positiony + "px";
+    currentapplepositionx = randomappleleft;
+    currentapplepositiony = randomapplebottom;
   }
   // If none of them are true, set the apple to an entire predefined position
   else {
     apple.style.left = positionx + "px";
     apple.style.bottom = positiony + "px";
+    currentapplepositionx = randomappleleft;
+    currentapplepositiony = randomapplebottom;
   }
 }
 
@@ -199,19 +211,33 @@ window.addEventListener("keydown", function (event) {
     clearInterval(movesnakerighttinterval);
     clearInterval(movesnakeupinterval);
     clearInterval(movesnakeleftinterval);
-    movesnakedowninterval = setInterval(movedown, 100);
     // Setting the variables to false so you can't go back
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
+    movesnakedowninterval = setInterval(movedown, 100);
     function movedown() {
-      console.log("test");
-      if (size.top - 15 <= positiony) {
+      if (size.top + 4 < positiony) {
         snake.style.bottom = positiony + "px";
         positiony -= 5;
-      } else if (size.top - 15 <= positiony) {
-        alert("you died!");
+      } else if (size.top + 4 > positiony) {
         clearInterval(movesnakedowninterval);
+        alert("you died!");
       }
     }
   }
 });
+
+// Function + interval for checking if the player "snake" is close enough to the apple
+let checkifscore = setInterval(applecheck, 1);
+
+function applecheck() {
+  if (
+    (currentapplepositionx <= positionx - 10 ||
+      currentapplepositionx >= positionx + 10) &&
+    currentapplepositiony <= positiony - 10 &&
+    currentapplepositiony >= positiony + 10
+  ) {
+    currentscore++;
+    scorecounter();
+  }
+}
