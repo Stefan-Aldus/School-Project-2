@@ -12,6 +12,8 @@ let text = document.getElementById("howtoplay-text")
 let start = document.getElementById("start-game")
 let btn3 = document.getElementById("how-to-play")
 let img = document.getElementById ("pong-pic")
+let score_left = document.getElementById("score_left")
+let score_right = document.getElementById("score_right")
 
 function startgame() {
   body.style.backgroundColor= "black"
@@ -101,4 +103,6 @@ function howToPlay() {
   text.style.display = "block"
   pause = true
 }
+
+
 
