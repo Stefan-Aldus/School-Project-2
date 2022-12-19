@@ -6,43 +6,50 @@ let stepsize = 10;
 let gridheight = 480;
 let body = document.getElementById("body");
 let btn = document.getElementById("btn");
-let btn2 = document.getElementById("btn2")
-let pause = false
-let text = document.getElementById("howtoplay-text")
-let start = document.getElementById("start-game")
-let btn3 = document.getElementById("how-to-play")
-let img = document.getElementById ("pong-pic")
-let score_left = document.getElementById("score_left")
-let score_right = document.getElementById("score_right")
+let btn2 = document.getElementById("btn2");
+let pause = false;
+let text = document.getElementById("howtoplay-text");
+let start = document.getElementById("start-game");
+let btn3 = document.getElementById("how-to-play");
+let img = document.getElementById("pong-pic");
+let score_left = document.getElementById("score_left");
+let score_right = document.getElementById("score_right");
+let ball = document.getElementById("ball");
 
+// start game button, goes from start screen to the actual game
 function startgame() {
-  body.style.backgroundColor= "black"
-  paddle_left.style.display = "block"
-  paddle_right.style.display = "block"
-  ball.style.display = "block"
-  text.style.display = "none"
-  start.style.display = "none"
-  pause = false
-  btn.style.display = "none"
-  btn2.style.display = "none"
-  btn3.style.display = "none"
-  img.style.display = "none"
+  body.style.backgroundColor = "black";
+  paddle_left.style.display = "block";
+  paddle_right.style.display = "block";
+  ball.style.display = "block";
+  text.style.display = "none";
+  start.style.display = "none";
+  pause = false;
+  btn.style.display = "none";
+  btn2.style.display = "none";
+  btn3.style.display = "none";
+  img.style.display = "none";
+  score_left.style.display = "block";
+  score_right.style.display = "block";
 }
 
+// how to play button on start screen, shows instructions and rules on how to play the game
 function howToPlay2() {
-  body.style.backgroundColor = "#b8b6b6"
-  paddle_left.style.display = "none"
-  paddle_right.style.display = "none"
-  ball.style.display = "none"
-  btn.style.display = "none"
-  btn2.style.display = "none"
-  text.style.display = "block"
-  pause = true
-  btn3.style.display = "none"
+  body.style.backgroundColor = "#b8b6b6";
+  paddle_left.style.display = "none";
+  paddle_right.style.display = "none";
+  ball.style.display = "none";
+  btn.style.display = "none";
+  btn2.style.display = "none";
+  text.style.display = "block";
+  pause = true;
+  btn3.style.display = "none";
+  score_left.style.display = "none";
+  score_right.style.display = "none";
 }
 
+// movement for the left paddle (player 1)
 window.addEventListener("keydown", function (event) {
-
   if (event.key == "s" && position_left < gridheight && pause == false) {
     position_left += stepsize;
     paddle_left.style.top = position_left + "px";
@@ -52,57 +59,76 @@ window.addEventListener("keydown", function (event) {
     position_left -= stepsize;
     paddle_left.style.top = position_left + "px";
   }
-})
+});
 
+// movement for the right paddle (player 2)
 window.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowDown" && position_right < gridheight && pause == false) {
+  if (
+    event.key == "ArrowDown" &&
+    position_right < gridheight &&
+    pause == false
+  ) {
     position_right += stepsize;
     paddle_right.style.top = position_right + "px";
   }
 
-  if (event.key == "ArrowUp" && position_right > 0 && pause == false  ) {
+  if (event.key == "ArrowUp" && position_right > 0 && pause == false) {
     position_right -= stepsize;
     paddle_right.style.top = position_right + "px";
   }
 });
 
-window.addEventListener("keydown", function(event) { 
+// pressing escape toggles the pause screen for if you need to do something 
+window.addEventListener("keydown", function (event) {
   if (event.key == "Escape") {
-    body.style.backgroundColor= "#b8b6b6"
-    paddle_left.style.display = "none"
-    paddle_right.style.display = "none"
-    ball.style.display = "none"
-    btn.style.display = "block"
-    btn2.style.display = "block"
-    text.style.display = "none"
-    pause = true
-    img.style.display = "block"
-}
-})
+    body.style.backgroundColor = "#b8b6b6";
+    paddle_left.style.display = "none";
+    paddle_right.style.display = "none";
+    ball.style.display = "none";
+    btn.style.display = "block";
+    btn2.style.display = "block";
+    text.style.display = "none";
+    pause = true;
+    img.style.display = "block";
+    score_left.style.display = "none";
+    score_right.style.display = "none";
+  }
+});
 
+// button to go back to the game after opening pause screen 
 function backToGame() {
-  body.style.backgroundColor= "black"
-  paddle_left.style.display = "block"
-  paddle_right.style.display = "block"
-  ball.style.display = "block"
-  btn.style.display = "none"
-  btn2.style.display = "none"
-  text.style.display = "none"
-  start.style.display = "none"
-  pause = false
-
+  body.style.backgroundColor = "black";
+  paddle_left.style.display = "block";
+  paddle_right.style.display = "block";
+  ball.style.display = "block";
+  btn.style.display = "none";
+  btn2.style.display = "none";
+  text.style.display = "none";
+  start.style.display = "none";
+  pause = false;
+  score_left.style.display = "block";
+  score_right.style.display = "block";
+  img.style.display = "none";
 }
 
+// button to show how to play the game while in pause screen
 function howToPlay() {
-  body.style.backgroundColor = "#b8b6b6"
-  paddle_left.style.display = "none"
-  paddle_right.style.display = "none"
-  ball.style.display = "none"
-  btn.style.display = "block"
-  btn2.style.display = "none"
-  text.style.display = "block"
-  pause = true
+  body.style.backgroundColor = "#b8b6b6";
+  paddle_left.style.display = "none";
+  paddle_right.style.display = "none";
+  ball.style.display = "none";
+  btn.style.display = "block";
+  btn2.style.display = "none";
+  text.style.display = "block";
+  pause = true;
+  score_left.style.display = "none";
+  score_right.style.display = "none";
 }
 
+if (ball = left) {
+  score_left += +1;
+}
 
-
+if (ball = right  ) {
+  score_right += +1;
+}
