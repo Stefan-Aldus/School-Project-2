@@ -9,9 +9,11 @@ let currentscoreoutput = document.getElementById("score");
 let currentscore = 0;
 let highscore = 0;
 
-// Setting snake position variables
+// Setting default position variables
 let positiony = 350;
 let positionx = 760;
+let snakepositiony = 350;
+let snakepositionx = 760;
 
 // Making variables to modify in a function for randomizing the apple position
 let randomapplebottom;
@@ -42,6 +44,8 @@ let movesnakedowninterval;
 
 // Reset function, resetting score to 0 & resetting the snake to default position, making the apple invisible
 function reset() {
+  positiony = 350;
+  positionx = 760;
   positiony = 350;
   positionx = 760;
   snake.style.right = positionx + "px";
@@ -99,7 +103,7 @@ function appleposition() {
     randomappleleft >= size.width
   ) {
     apple.style.bottom = randomapplebottom + "px";
-    apple.style.left = randomappleleft + "px";
+    apple.style.right = randomappleleft + "px";
     currentapplepositionx = randomappleleft;
     currentapplepositiony = randomapplebottom;
   }
@@ -107,20 +111,20 @@ function appleposition() {
   // and moving the apple to a pre-defined position in the width position
   else if (randomapplebottom <= size.bottom && randomapplebottom >= size.top) {
     apple.style.bottom = randomapplebottom + "px";
-    apple.style.left = positionx + "px";
-    currentapplepositionx = randomappleleft;
+    apple.style.right = positionx + "px";
+    currentapplepositionx = positionx;
     currentapplepositiony = randomapplebottom;
   }
   // If the above statement is false, checks if the left is in the field
   else if (randomappleleft <= size.left && randomappleleft >= size.width) {
-    apple.style.left = randomappleleft + "px";
+    apple.style.right = randomappleleft + "px";
     apple.style.bottom = positiony + "px";
     currentapplepositionx = randomappleleft;
-    currentapplepositiony = randomapplebottom;
+    currentapplepositiony = positiony;
   }
   // If none of them are true, set the apple to an entire predefined position
   else {
-    apple.style.left = positionx + "px";
+    apple.style.right = positionx + "px";
     apple.style.bottom = positiony + "px";
     currentapplepositionx = randomappleleft;
     currentapplepositiony = randomapplebottom;
@@ -140,10 +144,10 @@ window.addEventListener("keydown", function (event) {
       movesnakerighttinterval == undefined) &&
     (movesnakeleftinterval == false || movesnakeleftinterval == undefined)
   ) {
+    movesnakeleftinterval = setInterval(moveleft, 100);
     clearInterval(movesnakeupinterval);
     clearInterval(movesnakedowninterval);
     clearInterval(movesnakerighttinterval);
-    movesnakeleftinterval = setInterval(moveleft, 100);
     // Setting the variables to false so you can't go back
     movesnakedowninterval = false;
     movesnakeupinterval = false;
@@ -163,10 +167,10 @@ window.addEventListener("keydown", function (event) {
     (movesnakeleftinterval == false || movesnakeleftinterval == undefined) &&
     (movesnakerighttinterval == false || movesnakerighttinterval == undefined)
   ) {
+    movesnakerighttinterval = setInterval(moveright, 100);
     clearInterval(movesnakeupinterval);
     clearInterval(movesnakedowninterval);
     clearInterval(movesnakeleftinterval);
-    movesnakerighttinterval = setInterval(moveright, 100);
     // Setting the variables to false so you can't go back
     movesnakedowninterval = false;
     movesnakeupinterval = false;
@@ -186,10 +190,10 @@ window.addEventListener("keydown", function (event) {
     (movesnakedowninterval == false || movesnakedowninterval == undefined) &&
     (movesnakeupinterval == false || movesnakeupinterval == undefined)
   ) {
+    movesnakeupinterval = setInterval(moveup, 100);
     clearInterval(movesnakerighttinterval);
     clearInterval(movesnakedowninterval);
     clearInterval(movesnakeleftinterval);
-    movesnakeupinterval = setInterval(moveup, 100);
     // Setting the variables to false so you can't go back
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
@@ -208,13 +212,13 @@ window.addEventListener("keydown", function (event) {
     (movesnakeupinterval == false || movesnakeupinterval == undefined) &&
     (movesnakedowninterval == undefined || movesnakedowninterval == false)
   ) {
+    movesnakedowninterval = setInterval(movedown, 100);
     clearInterval(movesnakerighttinterval);
     clearInterval(movesnakeupinterval);
     clearInterval(movesnakeleftinterval);
     // Setting the variables to false so you can't go back
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
-    movesnakedowninterval = setInterval(movedown, 100);
     function movedown() {
       if (size.top + 4 < positiony) {
         snake.style.bottom = positiony + "px";
@@ -232,12 +236,36 @@ let checkifscore = setInterval(applecheck, 1);
 
 function applecheck() {
   if (
-    (currentapplepositionx <= positionx - 10 ||
-      currentapplepositionx >= positionx + 10) &&
-    currentapplepositiony <= positiony - 10 &&
-    currentapplepositiony >= positiony + 10
+    (currentapplepositionx == positionx - 1 ||
+      currentapplepositionx == positionx + 1 ||
+      currentapplepositionx == positionx - 2 ||
+      currentapplepositionx == positionx + 2 ||
+      currentapplepositionx == positionx + 3 ||
+      currentapplepositionx == positionx - 3 ||
+      currentapplepositionx == positionx + 4 ||
+      currentapplepositionx == positionx - 4 ||
+      currentapplepositionx == positionx + 5 ||
+      currentapplepositionx == positionx - 5) &&
+    (currentapplepositiony == positiony - 1 ||
+      currentapplepositiony == positiony + 1 ||
+      currentapplepositiony == positiony - 2 ||
+      currentapplepositiony == positiony + 2 ||
+      currentapplepositiony == positiony + 3 ||
+      currentapplepositiony == positiony - 3 ||
+      currentapplepositiony == positiony + 4 ||
+      currentapplepositiony == positiony - 4 ||
+      currentapplepositiony == positiony + 5 ||
+      currentapplepositiony == positiony - 5)
   ) {
     currentscore++;
     scorecounter();
   }
+}
+
+// TEST FUNCTION DELETE AFTER TESTING
+function pauseit() {
+  clearInterval(movesnakedowninterval);
+  clearInterval(movesnakeleftinterval);
+  clearInterval(movesnakerighttinterval);
+  clearInterval(movesnakeupinterval);
 }
