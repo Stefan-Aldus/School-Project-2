@@ -46,8 +46,8 @@ let movesnakedowninterval;
 function reset() {
   positiony = 350;
   positionx = 760;
-  positiony = 350;
-  positionx = 760;
+  snakepositiony = 350;
+  snakepositionx = 760;
   snake.style.right = positionx + "px";
   snake.style.bottom = positiony + "px";
   currentscore = 0;
@@ -152,10 +152,10 @@ window.addEventListener("keydown", function (event) {
     movesnakedowninterval = false;
     movesnakeupinterval = false;
     function moveleft() {
-      if (size.right - 20 > positionx) {
-        snake.style.right = positionx + "px";
-        positionx += 5;
-      } else if (size.right - 19 <= positionx) {
+      if (size.right - 20 > snakepositionx) {
+        snake.style.right = snakepositionx + "px";
+        snakepositionx += 5;
+      } else if (size.right - 19 <= snakepositionx) {
         alert("you died!");
         clearInterval(movesnakeleftinterval);
       }
@@ -175,10 +175,10 @@ window.addEventListener("keydown", function (event) {
     movesnakedowninterval = false;
     movesnakeupinterval = false;
     function moveright() {
-      if (size.left + 4 < positionx) {
-        snake.style.right = positionx + "px";
-        positionx -= 5;
-      } else if (size.left + 4 >= positionx) {
+      if (size.left + 4 < snakepositionx) {
+        snake.style.right = snakepositionx + "px";
+        snakepositionx -= 5;
+      } else if (size.left + 4 >= snakepositionx) {
         alert("you died!");
         clearInterval(movesnakerighttinterval);
       }
@@ -198,10 +198,10 @@ window.addEventListener("keydown", function (event) {
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
     function moveup() {
-      if (size.bottom - 15 > positiony) {
-        snake.style.bottom = positiony + "px";
-        positiony += 5;
-      } else if (size.bottom - 15 <= positiony) {
+      if (size.bottom - 15 > snakepositiony) {
+        snake.style.bottom = snakepositiony + "px";
+        snakepositiony += 5;
+      } else if (size.bottom - 15 <= snakepositiony) {
         alert("you died!");
         clearInterval(movesnakeupinterval);
       }
@@ -220,10 +220,10 @@ window.addEventListener("keydown", function (event) {
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
     function movedown() {
-      if (size.top + 4 < positiony) {
-        snake.style.bottom = positiony + "px";
-        positiony -= 5;
-      } else if (size.top + 4 > positiony) {
+      if (size.top + 4 < snakepositiony) {
+        snake.style.bottom = snakepositiony + "px";
+        snakepositiony -= 5;
+      } else if (size.top + 4 > snakepositiony) {
         clearInterval(movesnakedowninterval);
         alert("you died!");
       }
@@ -232,35 +232,35 @@ window.addEventListener("keydown", function (event) {
 });
 
 // Function + interval for checking if the player "snake" is close enough to the apple
-let checkifscore = setInterval(applecheck, 1);
+// let checkifscore = setInterval(applecheck, 1);
 
-function applecheck() {
-  if (
-    (currentapplepositionx == positionx - 1 ||
-      currentapplepositionx == positionx + 1 ||
-      currentapplepositionx == positionx - 2 ||
-      currentapplepositionx == positionx + 2 ||
-      currentapplepositionx == positionx + 3 ||
-      currentapplepositionx == positionx - 3 ||
-      currentapplepositionx == positionx + 4 ||
-      currentapplepositionx == positionx - 4 ||
-      currentapplepositionx == positionx + 5 ||
-      currentapplepositionx == positionx - 5) &&
-    (currentapplepositiony == positiony - 1 ||
-      currentapplepositiony == positiony + 1 ||
-      currentapplepositiony == positiony - 2 ||
-      currentapplepositiony == positiony + 2 ||
-      currentapplepositiony == positiony + 3 ||
-      currentapplepositiony == positiony - 3 ||
-      currentapplepositiony == positiony + 4 ||
-      currentapplepositiony == positiony - 4 ||
-      currentapplepositiony == positiony + 5 ||
-      currentapplepositiony == positiony - 5)
-  ) {
-    currentscore++;
-    scorecounter();
-  }
-}
+// function applecheck() {
+//   if (
+//     (currentapplepositionx == positionx - 1 ||
+//       currentapplepositionx == positionx + 1 ||
+//       currentapplepositionx == positionx - 2 ||
+//       currentapplepositionx == positionx + 2 ||
+//       currentapplepositionx == positionx + 3 ||
+//       currentapplepositionx == positionx - 3 ||
+//       currentapplepositionx == positionx + 4 ||
+//       currentapplepositionx == positionx - 4 ||
+//       currentapplepositionx == positionx + 5 ||
+//       currentapplepositionx == positionx - 5) &&
+//     (currentapplepositiony == positiony - 1 ||
+//       currentapplepositiony == positiony + 1 ||
+//       currentapplepositiony == positiony - 2 ||
+//       currentapplepositiony == positiony + 2 ||
+//       currentapplepositiony == positiony + 3 ||
+//       currentapplepositiony == positiony - 3 ||
+//       currentapplepositiony == positiony + 4 ||
+//       currentapplepositiony == positiony - 4 ||
+//       currentapplepositiony == positiony + 5 ||
+//       currentapplepositiony == positiony - 5)
+//   ) {
+//     currentscore++;
+//     scorecounter();
+//   }
+// }
 
 // TEST FUNCTION DELETE AFTER TESTING
 function pauseit() {
