@@ -5,6 +5,13 @@ let snake = document.getElementById("snake");
 let highscoreoutput = document.getElementById("highscore");
 let currentscoreoutput = document.getElementById("score");
 
+// Making a variable for checking the snake position
+let Numbers = [1, 1.5, 2, 2.5, 3, 3.5];
+
+// Making variables for the forloop-check system
+let i = 0;
+let i2 = 0;
+
 // Setting score variables
 let currentscore = 0;
 let highscore = 0;
@@ -36,6 +43,9 @@ console.log(snakeposition);
 // Setting an interval to generate positions for the apple every half second
 setInterval(randomappleposition, 50);
 
+// Setting a variable for the speed (changes the higher your score is)
+let speed = 5;
+
 // Setting variables for intervals
 let movesnakeleftinterval;
 let movesnakerighttinterval;
@@ -48,6 +58,7 @@ function reset() {
   positionx = 760;
   snakepositiony = 350;
   snakepositionx = 760;
+  speed = 5;
   snake.style.right = positionx + "px";
   snake.style.bottom = positiony + "px";
   currentscore = 0;
@@ -154,7 +165,7 @@ window.addEventListener("keydown", function (event) {
     function moveleft() {
       if (size.right - 20 > snakepositionx) {
         snake.style.right = snakepositionx + "px";
-        snakepositionx += 5;
+        snakepositionx += speed;
       } else if (size.right - 19 <= snakepositionx) {
         alert("you died!");
         clearInterval(movesnakeleftinterval);
@@ -177,7 +188,7 @@ window.addEventListener("keydown", function (event) {
     function moveright() {
       if (size.left + 4 < snakepositionx) {
         snake.style.right = snakepositionx + "px";
-        snakepositionx -= 5;
+        snakepositionx -= speed;
       } else if (size.left + 4 >= snakepositionx) {
         alert("you died!");
         clearInterval(movesnakerighttinterval);
@@ -198,10 +209,10 @@ window.addEventListener("keydown", function (event) {
     movesnakerighttinterval = false;
     movesnakeleftinterval = false;
     function moveup() {
-      if (size.bottom - 15 > snakepositiony) {
+      if (size.bottom - 0 > snakepositiony) {
         snake.style.bottom = snakepositiony + "px";
-        snakepositiony += 5;
-      } else if (size.bottom - 15 <= snakepositiony) {
+        snakepositiony += speed;
+      } else if (size.bottom - 0 <= snakepositiony) {
         alert("you died!");
         clearInterval(movesnakeupinterval);
       }
@@ -222,7 +233,7 @@ window.addEventListener("keydown", function (event) {
     function movedown() {
       if (size.top + 4 < snakepositiony) {
         snake.style.bottom = snakepositiony + "px";
-        snakepositiony -= 5;
+        snakepositiony -= speed;
       } else if (size.top + 4 > snakepositiony) {
         clearInterval(movesnakedowninterval);
         alert("you died!");
@@ -231,36 +242,49 @@ window.addEventListener("keydown", function (event) {
   }
 });
 
-// Function + interval for checking if the player "snake" is close enough to the apple
-// let checkifscore = setInterval(applecheck, 1);
+function funloop() {
+  for (; i != 49; i++) {
+    console.log(i);
+  }
+}
 
-// function applecheck() {
-//   if (
-//     (currentapplepositionx == positionx - 1 ||
-//       currentapplepositionx == positionx + 1 ||
-//       currentapplepositionx == positionx - 2 ||
-//       currentapplepositionx == positionx + 2 ||
-//       currentapplepositionx == positionx + 3 ||
-//       currentapplepositionx == positionx - 3 ||
-//       currentapplepositionx == positionx + 4 ||
-//       currentapplepositionx == positionx - 4 ||
-//       currentapplepositionx == positionx + 5 ||
-//       currentapplepositionx == positionx - 5) &&
-//     (currentapplepositiony == positiony - 1 ||
-//       currentapplepositiony == positiony + 1 ||
-//       currentapplepositiony == positiony - 2 ||
-//       currentapplepositiony == positiony + 2 ||
-//       currentapplepositiony == positiony + 3 ||
-//       currentapplepositiony == positiony - 3 ||
-//       currentapplepositiony == positiony + 4 ||
-//       currentapplepositiony == positiony - 4 ||
-//       currentapplepositiony == positiony + 5 ||
-//       currentapplepositiony == positiony - 5)
-//   ) {
-//     currentscore++;
-//     scorecounter();
-//   }
-// }
+let numberinterval;
+let numberinterval2;
+
+function numbercheck1() {
+  i++;
+  console.log("i1 = " + i);
+}
+
+function numbercheck2() {
+  i2++;
+  console.log("i2 = " + i);
+}
+
+// Function + interval for checking if the player "snake" is close enough to the apple
+setInterval(checkCollision, 50);
+
+function checkCollision() {
+  let appleRect = apple.getBoundingClientRect();
+  let snakeRect = snake.getBoundingClientRect();
+
+  // Checking if the rectangles overlap
+  if (
+    appleRect.left + 30 < snakeRect.right &&
+    appleRect.right - 30 > snakeRect.left &&
+    appleRect.top + 30 < snakeRect.bottom &&
+    appleRect.bottom - 30 > snakeRect.top
+  ) {
+    // If the above statement = true, it basically means the snake has eaten the apple,
+    //  so it triggers the scorecounter and appleposition functions
+    scorecounter();
+    appleposition();
+    // It also increases the speed if the speed isn't at the max I set already (max of 20)
+    if (speed != 20) {
+      speed += 5;
+    }
+  }
+}
 
 // TEST FUNCTION DELETE AFTER TESTING
 function pauseit() {
@@ -268,4 +292,6 @@ function pauseit() {
   clearInterval(movesnakeleftinterval);
   clearInterval(movesnakerighttinterval);
   clearInterval(movesnakeupinterval);
+  clearInterval(numberinterval);
+  clearInterval(numberinterval2);
 }
