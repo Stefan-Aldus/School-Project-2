@@ -1,16 +1,16 @@
-// Getting all DOM elements
+// Getting all DOM elements for the pause/game/dead screen
+let pause = document.querySelector(".pause");
+let play = document.querySelector(".game");
+let dead = document.querySelector(".dead");
+let startbutton = document.getElementById("playbutton1");
+let restartbutton = document.getElementById("playbutton2");
+
+// Getting all DOM elements for the game
 let playarea = document.getElementById("playarea");
 let apple = document.getElementById("apple");
 let snake = document.getElementById("snake");
 let highscoreoutput = document.getElementById("highscore");
 let currentscoreoutput = document.getElementById("score");
-
-// Making a variable for checking the snake position
-let Numbers = [1, 1.5, 2, 2.5, 3, 3.5];
-
-// Making variables for the forloop-check system
-let i = 0;
-let i2 = 0;
 
 // Setting score variables
 let currentscore = 0;
@@ -30,15 +30,14 @@ let randomappleleft;
 let currentapplepositionx;
 let currentapplepositiony;
 
-// Making a variable to check the size of the playarea
-let size = playarea.getBoundingClientRect();
-// Logging it for debug purposes (remove when done)
-console.log(size);
+// Making a variable to check the size of the playarea and a function to update it when the play button gets clicked
+let size;
+function updatesize() {
+  size = playarea.getBoundingClientRect();
+}
 
 // Making a variable to check the position of the snake
 let snakeposition = snake.getBoundingClientRect();
-// Logging it for debug purposes (remove when done)
-console.log(snakeposition);
 
 // Setting an interval to generate positions for the apple every half second
 setInterval(randomappleposition, 50);
@@ -51,6 +50,10 @@ let movesnakeleftinterval;
 let movesnakerighttinterval;
 let movesnakeupinterval;
 let movesnakedowninterval;
+
+// Setting a click event listener to the start button
+startbutton.addEventListener("click", start);
+restartbutton.addEventListener("click", start);
 
 // Reset function, resetting score to 0 & resetting the snake to default position, making the apple invisible
 function reset() {
@@ -73,12 +76,18 @@ function reset() {
   movesnakedowninterval = false;
   movesnakeleftinterval = false;
   movesnakerighttinterval = false;
+  play.classList.remove("active");
+  pause.classList.remove("active");
+  dead.classList.add("active");
 }
 
 function start() {
-  scorecounter();
-  appleposition();
   apple.classList.remove("invisible");
+  play.classList.add("active");
+  pause.classList.remove("active");
+  dead.classList.remove("active");
+  updatesize();
+  appleposition();
 }
 
 // Scorecounter code
@@ -145,8 +154,6 @@ function appleposition() {
 // Eventlisteners for changing the movement direction
 
 window.addEventListener("keydown", function (event) {
-  // Logging the key (remove when finished)
-  console.log(event.key);
   if (
     // Checking if a or left arrow gets pressed, and if either the move right interval is undefined or false (set in other listeners)
     // Also checking if the direction isn't the same as the snake is moving now
@@ -168,7 +175,7 @@ window.addEventListener("keydown", function (event) {
         snakepositionx += speed;
       } else if (size.right - 19 <= snakepositionx) {
         alert("you died!");
-        clearInterval(movesnakeleftinterval);
+        reset();
       }
     }
   }
@@ -191,7 +198,7 @@ window.addEventListener("keydown", function (event) {
         snakepositionx -= speed;
       } else if (size.left + 4 >= snakepositionx) {
         alert("you died!");
-        clearInterval(movesnakerighttinterval);
+        reset();
       }
     }
   }
@@ -214,7 +221,7 @@ window.addEventListener("keydown", function (event) {
         snakepositiony += speed;
       } else if (size.bottom - 0 <= snakepositiony) {
         alert("you died!");
-        clearInterval(movesnakeupinterval);
+        reset();
       }
     }
   }
@@ -235,31 +242,16 @@ window.addEventListener("keydown", function (event) {
         snake.style.bottom = snakepositiony + "px";
         snakepositiony -= speed;
       } else if (size.top + 4 > snakepositiony) {
-        clearInterval(movesnakedowninterval);
+        reset();
         alert("you died!");
       }
     }
   }
-});
-
-function funloop() {
-  for (; i != 49; i++) {
-    console.log(i);
+  // Making the escape key trigger the reset function
+  if (event.key == "Escape") {
+    reset();
   }
-}
-
-let numberinterval;
-let numberinterval2;
-
-function numbercheck1() {
-  i++;
-  console.log("i1 = " + i);
-}
-
-function numbercheck2() {
-  i2++;
-  console.log("i2 = " + i);
-}
+});
 
 // Function + interval for checking if the player "snake" is close enough to the apple
 setInterval(checkCollision, 50);
@@ -268,7 +260,7 @@ function checkCollision() {
   let appleRect = apple.getBoundingClientRect();
   let snakeRect = snake.getBoundingClientRect();
 
-  // Checking if the rectangles overlap
+  // Checking if the snake and apple overlap
   if (
     appleRect.left + 30 < snakeRect.right &&
     appleRect.right - 30 > snakeRect.left &&
@@ -281,17 +273,7 @@ function checkCollision() {
     appleposition();
     // It also increases the speed if the speed isn't at the max I set already (max of 20)
     if (speed != 20) {
-      speed += 5;
+      speed += 1.5;
     }
   }
-}
-
-// TEST FUNCTION DELETE AFTER TESTING
-function pauseit() {
-  clearInterval(movesnakedowninterval);
-  clearInterval(movesnakeleftinterval);
-  clearInterval(movesnakerighttinterval);
-  clearInterval(movesnakeupinterval);
-  clearInterval(numberinterval);
-  clearInterval(numberinterval2);
 }

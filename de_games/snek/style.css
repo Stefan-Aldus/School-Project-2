@@ -5,13 +5,50 @@
     position: relative;
 }
 
-body {
-    display: flex;
+.pause {
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background: palegoldenrod;
+    color: white;
+}
+
+.dead {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: palegoldenrod;
+    color: white;
+}
+
+.playbutton {
+    color: white;
+    width: 20vw;
+    height: 20vh;
+    border: none;
+    background-color: inherit;
+    outline: 1px solid white;
+    margin-top: 5vh;
+}
+
+.playbutton:hover{
+    background-color: rgba(255, 245, 131, 0.567);
+}
+
+.game {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: palegoldenrod;
 }
 
 .playarea {
@@ -35,4 +72,8 @@ body {
 
 .invisible {
     display: none;
+}
+
+.active {
+    display: flex;
 }
