@@ -5,18 +5,9 @@
     position: relative;
 }
 
-.pause {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: palegoldenrod;
-    color: white;
-}
-
-.dead {
+.pause,
+.dead,
+.game {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -41,16 +32,6 @@
     background-color: rgba(255, 245, 131, 0.567);
 }
 
-.game {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: palegoldenrod;
-}
-
 .playarea {
     width: 40vw;
     height: 75vh;
@@ -58,17 +39,21 @@
     border: 0.5vw red solid;
 }
 
+.snake,
+.apple {
+    position: absolute;
+}
+
 .snake {
     background-color: black;
-    position: absolute;
     width: 10px;
     height: 10px;
 }
 
 .apple {
-    position: absolute;
     width: 75px;
-    height: 100px;}
+    height: 100px;
+}
 
 .invisible {
     display: none;
