@@ -154,11 +154,12 @@ function updateBallPosition() {
 
 setInterval(updateBallPosition, 10);
 
-
+  // if ball hits left side of the screen, the right players score goes up by 1
 if (x < 0) {
 score_right.innerText += "1"
 }
 
+// if ball hits right side of the screen, the left players score goes up by 1 
 if (x > window.innerWidth - 20) {
 score_left.innerHTML += "1"
 }
