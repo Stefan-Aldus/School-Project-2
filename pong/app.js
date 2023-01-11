@@ -21,6 +21,10 @@ let xSpeed = 3;
 let ySpeed = 3;
 
 
+score_left.innerText = "0"
+score_right.innerText = "0"
+
+
 // start game button, goes from start screen to the actual game
 function startgame() {
   body.style.backgroundColor = "black";
@@ -135,7 +139,7 @@ function updateBallPosition() {
   x += xSpeed;
   y += ySpeed;
 
-  // checks if the ball hits the edge of the screen
+  // checks if the ball hits the edge of the screen, if it does, changes direction by 180 degrees
   if (x < 0 || x > window.innerWidth - 20) {
       xSpeed = -xSpeed;
   }
@@ -149,3 +153,13 @@ function updateBallPosition() {
 }
 
 setInterval(updateBallPosition, 10);
+
+
+if (x < 0) {
+score_right.innerText += "1"
+}
+
+if (x > window.innerWidth - 20) {
+score_left.innerHTML += "1"
+}
+
