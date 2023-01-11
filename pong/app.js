@@ -15,6 +15,11 @@ let img = document.getElementById("pong-pic");
 let score_left = document.getElementById("score_left");
 let score_right = document.getElementById("score_right");
 let ball = document.getElementById("ball");
+let x = 0;
+let y = 0;
+let xSpeed = 3;
+let ySpeed = 3;
+
 
 // start game button, goes from start screen to the actual game
 function startgame() {
@@ -125,10 +130,22 @@ function howToPlay() {
   score_right.style.display = "none";
 }
 
-if (ball = left) {
-  score_left += +1;
+// changes the position of the ball according to its speed
+function updateBallPosition() {
+  x += xSpeed;
+  y += ySpeed;
+
+  // checks if the ball hits the edge of the screen
+  if (x < 0 || x > window.innerWidth - 20) {
+      xSpeed = -xSpeed;
+  }
+  if (y < 0 || y > window.innerHeight - 20) {
+      ySpeed = -ySpeed;
+  }
+
+  // update the position of the ball
+  ball.style.left = x + "px";
+  ball.style.top = y + "px";
 }
 
-if (ball = right  ) {
-  score_right += +1;
-}
+setInterval(updateBallPosition, 10);
