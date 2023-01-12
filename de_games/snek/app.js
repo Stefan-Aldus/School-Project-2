@@ -247,7 +247,7 @@ window.addEventListener("keydown", function (event) {
       }
     }
   }
-  // Making the escape key trigger the reset function
+  // Making the escape key trigger the reset() function
   if (event.key == "Escape") {
     reset();
   }
@@ -257,23 +257,24 @@ window.addEventListener("keydown", function (event) {
 setInterval(checkCollision, 50);
 
 function checkCollision() {
+  // Getting the boundingrect from the apple and snake
   let appleRect = apple.getBoundingClientRect();
   let snakeRect = snake.getBoundingClientRect();
 
-  // Checking if the snake and apple overlap
+  // Checking if the snake and apple overlap using the previously made rect variables
   if (
     appleRect.left + 30 < snakeRect.right &&
     appleRect.right - 30 > snakeRect.left &&
     appleRect.top + 30 < snakeRect.bottom &&
     appleRect.bottom - 30 > snakeRect.top
   ) {
-    // If the above statement = true, it basically means the snake has eaten the apple,
-    //  so it triggers the scorecounter and appleposition functions
+    // If the above statement = true, it basically means the snake has "eaten" the apple,
+    //  so it triggers the scorecounter and appleposition functions to up the score and move the apple
     scorecounter();
     appleposition();
     // It also increases the speed if the speed isn't at the max I set already (max of 20)
     if (speed != 20) {
-      speed += 1.5;
+      speed += 1;
     }
   }
 }
