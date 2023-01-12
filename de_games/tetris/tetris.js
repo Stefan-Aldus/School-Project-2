@@ -1,7 +1,7 @@
+
+
 let canvas = document.getElementById("gamecanvas");
 let beginbutton = document.getElementById("beginbutton");
-
-
 
 
 
