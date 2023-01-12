@@ -12,6 +12,12 @@ let snake = document.getElementById("snake");
 let highscoreoutput = document.getElementById("highscore");
 let currentscoreoutput = document.getElementById("score");
 
+// Making an array with different background colors
+let backgroundcolors = ["white", "gray"];
+
+// Making a variable for playing a sound
+let applesound = new Audio("./img/apple.mp3");
+
 // Setting score variables
 let currentscore = 0;
 let highscore = 0;
@@ -32,6 +38,7 @@ let currentapplepositiony;
 
 // Making a variable to check the size of the playarea and a function to update it when the play button gets clicked
 let size;
+
 function updatesize() {
   size = playarea.getBoundingClientRect();
 }
@@ -88,6 +95,14 @@ function start() {
   dead.classList.remove("active");
   updatesize();
   appleposition();
+  changebackground();
+}
+
+// Code to change the background color (had to use an array somewhere)
+
+function changebackground() {
+  let randomnumber = Math.floor(Math.random() * 2);
+  playarea.style.backgroundColor = backgroundcolors[randomnumber];
 }
 
 // Scorecounter code
@@ -270,6 +285,7 @@ function checkCollision() {
   ) {
     // If the above statement = true, it basically means the snake has "eaten" the apple,
     //  so it triggers the scorecounter and appleposition functions to up the score and move the apple
+    applesound.play();
     scorecounter();
     appleposition();
     // It also increases the speed if the speed isn't at the max I set already (max of 20)
