@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Setting the default styling for the pause, dead, and game screen */
+
+.pause, .dead, .game {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: palegoldenrod;
+    color: white;
+}
+
+/* Styling the playbutton */
+
+.playbutton {
+    color: white;
+    width: 20vw;
+    height: 20vh;
+    border: none;
+    background-color: inherit;
+    outline: 1px solid white;
+    margin-top: 5vh;
+}
+
+/* Changing the bacground color of the button on hover */
+
+.playbutton:hover{
+    background-color: rgba(255, 245, 131, 0.567);
+}
+
+/* Defining the size and color of the play area */
+
+.playarea {
+    width: 40vw;
+    height: 75vh;
+    background: gray;
+    border: 0.5vw red solid;
+}
+
+/* Styling the snake and setting the position to absolute */
+
+.snake {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+}
+
+/* Styling the apple and setting the position to absokute */
+
+.apple {
+    width: 75px;
+    height: 100px;
+    position: absolute;
+}
+
+/* Making an invisible class w/ display none */
+
+.invisible {
+    display: none;
+}
+
+/* Making an active class w/ display flex to show elements hidden by default */
+
+.active {
+    display: flex;
+}

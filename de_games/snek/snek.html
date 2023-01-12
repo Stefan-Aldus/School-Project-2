@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake, without growing, in Javascript w/o Canvas!</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="pause active">
+      <h1>Welcome to Snek!</h1>
+      <p>This game is developed by: Stefan Aldus</p>
+      <p>
+        The goal of the game is for the "snake" (the small black dot) to "eat"
+        the apples, to do this, move with the W/A/S/D or arrow keys.
+      </p>
+      <p>
+        Each time you eat an apple, your "snake" gets faster, if you hit the
+        sides of the play area, you have died!
+      </p>
+      <p>
+        At any point in the game, you may press your "ESC" key to exit back to
+        this menu, however the game will be reset!
+      </p>
+      <button class="playbutton" id="playbutton1">Click here to play!</button>
+    </div>
+    <div class="dead">
+      <h1>Welcome to snek!</h1>
+      <p>Unfortunately you just died!</p>
+      <button class="playbutton" id="playbutton2">Click here to start again!</button>
+    </div>
+    <div class="game">
+      <p class="score" id="highscore">De highscore is: 0 punten</p>
+      <p class="score" id="score">De huidige score is: 0 punten</p>
+      <div class="playarea" id="playarea"></div>
+      <div class="snake" id="snake"></div>
+      <div class="apple invisible" id="apple">
+        <img src="./img/apple.png" alt="Apple" width="75px" height="100px" />
+      </div>
+      <script src="./app.js"></script>
+    </div>
+  </body>
+</html>
