@@ -15,8 +15,8 @@ let img = document.getElementById("pong-pic");
 let score_left = document.getElementById("score_left");
 let score_right = document.getElementById("score_right");
 let ball = document.getElementById("ball");
-let x = Math.floor(Math.random() * (window.innerWidth - 100 - 80) + 80);
-let y = Math.floor(Math.random() * (window.innerHeight - 100 - 80) + 80);
+let x = Math.floor(window.innerWidth / 2) ;
+let y = Math.floor(window.innerHeight / 2);
 let xSpeed = 3;
 let ySpeed = 3;
 let score_l = 0;
@@ -100,7 +100,7 @@ window.addEventListener("keydown", function (event) {
   }
 
   if (event.key == " " && player_scored == true) {
-    player_scored == false;
+    player_scored = false;
     gameInterval = setInterval(updateBallPosition, 10);
   }
 
@@ -135,7 +135,7 @@ function backToGame() {
   score_left.style.display = "block";
   score_right.style.display = "block";
   img.style.display = "none";
-  gameInterval = setInterval(updateBallPosition, 10);
+  player_scored = true;
 }
 
 // button to show how to play the game while in pause screen
