@@ -105,7 +105,7 @@ window.addEventListener("keydown", function (event) {
   }
 
   // pressing escape toggles the pause screen for if you need to do something
-  if (event.key == "Escape") {
+  if (event.key == "Escape" && ball.style.display == "block") {
     body.style.backgroundColor = "#b8b6b6";
     paddle_red.style.display = "none";
     paddle_blue.style.display = "none";
