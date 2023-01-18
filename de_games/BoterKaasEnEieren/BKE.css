@@ -4,6 +4,7 @@ main {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 .playarea * {
@@ -31,12 +32,12 @@ main {
   cursor: pointer;
 }
 
-/* it shows either x or y on the screen if called in javascript */
+/* it shows either x or o on the screen if called in javascript */
 
 .x::after {
-  content: "x";
+  content: "X";
 }
 
 .y::after {
-  content: "y";
+  content: "O";
 }
