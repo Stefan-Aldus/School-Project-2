@@ -1,0 +1,42 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.playarea * {
+  font-size: 2rem;
+}
+
+.playarea {
+  width: 75vw;
+  height: 75vh;
+  outline: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.select {
+  width: 25vw;
+  height: 25vh;
+  outline: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* it shows either x or y on the screen if called in javascript */
+
+.x::after {
+  content: "x";
+}
+
+.y::after {
+  content: "y";
+}
